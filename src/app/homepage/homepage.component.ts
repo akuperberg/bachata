@@ -1,36 +1,50 @@
 import { Component } from '@angular/core';
 import { VideosService } from '../shared/services/videos/videos.service';
 import { VideoPlayerComponent } from '../shared/components/video-player/video-player.component';
-
+import { CommonModule } from '@angular/common';
+import { tap } from 'rxjs';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [VideoPlayerComponent],
+  imports: [VideoPlayerComponent, CommonModule, SlickCarouselModule],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
+  styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent {
-
   videoId = 'i_LwzRVP7bg';
   videoInfo: any;
+  videoIds: string[] = [];
+
+  slickCarouselConfig = {
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000
+  };
 
   constructor(private videosService: VideosService) {}
 
   ngOnInit() {
-    this.loadVideoInfo();
+    this.loadPopular();
   }
 
-  loadVideoInfo() {
-    this.videosService.getVideoInfo(this.videoId).subscribe(
-      (data) => {
-        this.videoInfo = data.items[0]; // Assuming you want details of the first item in the response
-        console.log('Video Info:', this.videoInfo);
-      },
-      (error) => {
-        console.error('Error fetching video info:', error);
-      }
-    );
+  loadPopular() {
+    this.videosService
+      .getPopularVideos()
+      .pipe(
+        tap((data) => {
+          this.videoIds = data.items.map((item: any) => item.id.videoId);
+        })
+      )
+      .subscribe();
   }
 
+  slickInit(e: any) {
+    console.log('slick initialized');
+  }
+  
 }
