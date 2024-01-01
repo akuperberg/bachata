@@ -11,6 +11,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 export class VideoPlayerComponent {
   apiLoaded = false;
   @Input() videoId = '';
+  @Input() width = 0;
 
   ngOnInit() {
     if (!this.apiLoaded) {

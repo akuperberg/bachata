@@ -18,12 +18,12 @@ export class HomepageComponent {
   videoIds: string[] = [];
 
   slickCarouselConfig = {
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     dots: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000
+    prevArrow: '<button class="slick-prev">Previous</button>',
+    nextArrow: '<button class="slick-next">Next</button>',
   };
 
   constructor(private videosService: VideosService) {}

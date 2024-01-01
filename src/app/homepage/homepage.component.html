@@ -1,10 +1,23 @@
-<h1>Bachata Portal</h1>
-<p>
-  Welcome to the portal for all bachata lovers! Here you can find the video
-  dance tutorials, information about bachata events all around the world
-</p>
-<ngx-slick-carousel class="carousel" [config]="slickCarouselConfig" (init)="slickInit($event)">
-    <div *ngFor="let videoId of videoIds">
-      <app-video-player ngxSlickItem [videoId]="videoId"></app-video-player>
-    </div>
-  </ngx-slick-carousel>
+<div class="container">
+    <div class="content">
+  <div>
+    <h1>Bachata Portal</h1>
+    <p>
+      Welcome to the portal for all bachata lovers! Here you can find the video
+      dance tutorials, information about bachata events all around the world
+    </p>
+  </div>
+
+  <div class="carousel">
+    <ngx-slick-carousel
+      class="carousel"
+      [config]="slickCarouselConfig"
+      (init)="slickInit($event)"
+    >
+      <div *ngFor="let videoId of videoIds">
+        <app-video-player ngxSlickItem [videoId]="videoId" [width]="600"></app-video-player>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+</div>
