@@ -4,23 +4,24 @@ import { VideoPlayerComponent } from '../shared/components/video-player/video-pl
 import { CommonModule } from '@angular/common';
 import { tap } from 'rxjs';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ButtonComponent } from '../shared/button/button.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [VideoPlayerComponent, CommonModule, SlickCarouselModule],
+  imports: [VideoPlayerComponent, CommonModule, SlickCarouselModule, ButtonComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent {
-  videoId = 'i_LwzRVP7bg';
-  videoInfo: any;
-  videoIds: string[] = [];
+  public videoId = 'i_LwzRVP7bg';
+  public videoInfo: any;
+  public videoIds: string[] = [];
 
-  slickCarouselConfig = {
+  public slickCarouselConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: true,
+    dots: false,
     infinite: true,
     prevArrow: '<button class="slick-prev">Previous</button>',
     nextArrow: '<button class="slick-next">Next</button>',
@@ -32,7 +33,7 @@ export class HomepageComponent {
     this.loadPopular();
   }
 
-  loadPopular() {
+  public loadPopular() {
     this.videosService
       .getPopularVideos()
       .pipe(
@@ -41,10 +42,6 @@ export class HomepageComponent {
         })
       )
       .subscribe();
-  }
-
-  slickInit(e: any) {
-    console.log('slick initialized');
   }
   
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VideosService {
-  private apiKey = 'AIzaSyCOuBNs2WJZlMAe5LgRIkZLsGMVhmFgHK0';
+  private apiKey = 'AIzaSyCSivvFRuJ6VGbw8KwP6Bh8Dy3p5Iao3q0';
   private apiUrl = 'https://www.googleapis.com/youtube/v3';
 
   constructor(private http: HttpClient) { }

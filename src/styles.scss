@@ -18,9 +18,19 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   padding: 30px;
-  background: #90AFC5;
+  background: #C4DFE6;
 }
 
 h1 {
     font-family: 'Open Sans', sans-serif;
+    font-size: 100px;
+    margin: 0;
+}
+
+.slick-dots li button:before {
+  color: #3E363F !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: red !important;
 }

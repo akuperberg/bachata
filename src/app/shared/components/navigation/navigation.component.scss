@@ -1,7 +1,7 @@
 nav {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 
@@ -10,11 +10,12 @@ a {
     text-decoration: none;
     color: #3E363F;
     font-weight: bold;
+    font-size: 20px;
 }
 
 a.link-active {
     text-decoration: underline;
-    text-decoration-color: rgb(255, 70, 50);
+    text-decoration-color:#FF3333;
     text-underline-offset: 10px;
     text-decoration-thickness: 4px;
 }
