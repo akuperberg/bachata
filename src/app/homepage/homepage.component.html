@@ -1,18 +1,19 @@
 <div class="container">
-    <h1 class="header">Bachata Portal</h1>
-    <div class="carousel">
-      <ngx-slick-carousel
-        class="carousel"
-        [config]="slickCarouselConfig"
-      >
-        <div *ngFor="let videoId of videoIds">
-          <app-video-player
-            ngxSlickItem
-            [videoId]="videoId"
-            [width]="600"
-          ></app-video-player>
-        </div>
-      </ngx-slick-carousel>
-    </div>
-    <app-button [buttonText]="'Explore'" [buttonImportance]="'primary'"  [routerLinkAddress]="'/tutorials'"></app-button>
- </div>
+  <h1 class="header">Bachata Portal</h1>
+  <div class="carousel">
+    <ngx-slick-carousel class="carousel" [config]="slickCarouselConfig">
+      @for (videoId of videoIds; track videoId) {
+      <app-video-player
+        ngxSlickItem
+        [videoId]="videoId"
+        [width]="600"
+      ></app-video-player>
+      }
+    </ngx-slick-carousel>
+  </div>
+  <app-button
+    [buttonText]="'Explore'"
+    [buttonImportance]="'primary'"
+    [routerLinkAddress]="'/tutorials'"
+  ></app-button>
+</div>
