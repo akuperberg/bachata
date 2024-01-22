@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { tap } from 'rxjs';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ButtonComponent } from '../shared/button/button.component';
+import { Video } from '../model/video';
 
 @Component({
   selector: 'app-homepage',
@@ -16,7 +17,7 @@ import { ButtonComponent } from '../shared/button/button.component';
 export class HomepageComponent {
   public videoId = 'i_LwzRVP7bg';
   public videoInfo: any;
-  public videoIds: string[] = [];
+  public videos: Array<Video> = [];
 
   public slickCarouselConfig = {
     slidesToShow: 1,
@@ -38,10 +39,14 @@ export class HomepageComponent {
       .getPopularVideos()
       .pipe(
         tap((data) => {
-          this.videoIds = data.items.map((item: any) => item.id.videoId);
+          this.videos = data.items.map((item: any) => new Video(item.id.videoId));
         })
       )
       .subscribe();
+  }
+
+  public beforeChange(event: any) {
+    this.videos[event.currentSlide].stopVideo$.next();
   }
   
 }

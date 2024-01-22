@@ -4,14 +4,15 @@
       <ngx-slick-carousel
         class="carousel"
         [config]="slickCarouselConfig"
+        (beforeChange)="beforeChange($event)"
       >
-        <div *ngFor="let videoId of videoIds">
+        @for (video of videos; track video.id) {
           <app-video-player
             ngxSlickItem
-            [videoId]="videoId"
+            [video]="video"
             [width]="600"
           ></app-video-player>
-        </div>
+        }
       </ngx-slick-carousel>
     </div>
     <app-button [buttonText]="'Explore'" [buttonImportance]="'primary'"  [routerLinkAddress]="'/tutorials'"></app-button>
