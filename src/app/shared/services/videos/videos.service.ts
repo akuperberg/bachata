@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class VideosService {
   private apiKey = 'AIzaSyCSivvFRuJ6VGbw8KwP6Bh8Dy3p5Iao3q0';
   private apiUrl = 'https://www.googleapis.com/youtube/v3';
+  
+  stopVideo$: Subject<void> = new Subject();
 
   constructor(private http: HttpClient) { }
 
