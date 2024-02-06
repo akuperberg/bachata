@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { YouTubePlayer } from '@angular/youtube-player';
+import { VideosService } from '../../services/videos/videos.service';
 
 @Component({
   selector: 'app-video-player',
@@ -12,7 +13,10 @@ import { YouTubePlayer } from '@angular/youtube-player';
 export class VideoPlayerComponent {
   @Input() videoId = '';
   @Input() width = 0;
-  @Input() apiLoaded = false;
+  public apiLoaded = false;
+  @ViewChild(YouTubePlayer) youtubePlayer!: any;
+
+  constructor( private videosService: VideosService){}
 
   ngOnInit() {
     if (!this.apiLoaded) {
@@ -21,9 +25,21 @@ export class VideoPlayerComponent {
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }
+
+    console.log(this.videosService.stopVideo$.subscribe())
+    
+    //     this.video.stopVideo$.subscribe(() => this.stopVideo());
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.youtubePlayer);
   }
 
   ngOnDestroy(): void {
     this.apiLoaded = false;
+  }
+
+  stopVideo() {
+    this.youtubePlayer.stopVideo();
   }
 }
