@@ -6,11 +6,12 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ButtonComponent } from '../shared/button/button.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { YouTubePlayer } from '@angular/youtube-player';
+import { VideoPlayerComponent } from '../shared/components/video-player/video-player.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule, ButtonComponent, YouTubePlayerModule],
+  imports: [CommonModule, SlickCarouselModule, ButtonComponent, YouTubePlayerModule, VideoPlayerComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
