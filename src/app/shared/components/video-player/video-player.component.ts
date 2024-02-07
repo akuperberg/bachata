@@ -25,10 +25,9 @@ export class VideoPlayerComponent {
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }
+    this.videosService.stopVideo$.subscribe(() => this.stopVideo());
 
     console.log(this.videosService.stopVideo$.subscribe())
-    
-    //     this.video.stopVideo$.subscribe(() => this.stopVideo());
   }
 
   ngAfterViewInit(): void {

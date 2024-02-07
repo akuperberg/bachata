@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="header">Bachata Portal</h1>
   <div class="carousel">
-    <ngx-slick-carousel class="carousel" [config]="slickCarouselConfig" (beforeChange)="onBeforeChange()" (afterChange)="onAfterChange($event)">
+    <ngx-slick-carousel class="carousel" [config]="slickCarouselConfig" (beforeChange)="onBeforeChange($event)" (afterChange)="onAfterChange($event)">
       @for (videoId of videoIds; track videoId) {
       <!-- <youtube-player ngxSlickItem [videoId]="videoId" [width]="600"></youtube-player> -->
       <app-video-player ngxSlickItem [videoId]="videoId" [width]="600"></app-video-player>

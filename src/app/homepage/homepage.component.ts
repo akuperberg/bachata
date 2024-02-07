@@ -49,9 +49,13 @@ export class HomepageComponent {
   }
   
 
-  public onBeforeChange() {
+  public onBeforeChange(event: any) {
    this.youtubePlayer.toArray()[this.activeSlideIndex].stopVideo();
   }
+
+      // public beforeChange(event: any) {
+    //   this.videos[event.currentSlide].stopVideo$.next();
+    // }
 
   public onAfterChange(event: any): void {
     this.activeSlideIndex = event.currentSlide;
