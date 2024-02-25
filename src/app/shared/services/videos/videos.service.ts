@@ -10,7 +10,7 @@ export class VideosService {
   private apiKey = 'AIzaSyCSivvFRuJ6VGbw8KwP6Bh8Dy3p5Iao3q0';
   private apiUrl = 'https://www.googleapis.com/youtube/v3';
   
-  stopVideo$: Subject<void> = new Subject();
+  stopVideo$ = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bachata-project-409216": {
+      "hosting": {
+        "bachata-app": [
+          "bachata-project-409216"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bachata-project-409216"
+  }
+}

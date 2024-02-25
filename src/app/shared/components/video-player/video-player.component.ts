@@ -1,4 +1,8 @@
-import { Component, Input, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild
+} from '@angular/core';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { VideosService } from '../../services/videos/videos.service';
@@ -8,15 +12,16 @@ import { VideosService } from '../../services/videos/videos.service';
   standalone: true,
   imports: [YouTubePlayerModule],
   templateUrl: './video-player.component.html',
-  styleUrl: './video-player.component.scss'
+  styleUrl: './video-player.component.scss',
 })
 export class VideoPlayerComponent {
   @Input() videoId = '';
   @Input() width = 0;
+  @Input() activeSlide = 0;
   public apiLoaded = false;
   @ViewChild(YouTubePlayer) youtubePlayer!: any;
 
-  constructor( private videosService: VideosService){}
+  constructor(private videosService: VideosService) {}
 
   ngOnInit() {
     if (!this.apiLoaded) {
@@ -25,13 +30,11 @@ export class VideoPlayerComponent {
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }
-    this.videosService.stopVideo$.subscribe(() => this.stopVideo());
-
-    console.log(this.videosService.stopVideo$.subscribe())
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.youtubePlayer);
+    this.videosService.stopVideo$.subscribe((video) => {
+      if (this.youtubePlayer?.videoId === video) {
+        this.youtubePlayer.stopVideo();
+      }
+    });
   }
 
   ngOnDestroy(): void {
