@@ -1,0 +1,9 @@
+<h2>Events</h2>
+@for (event of events$ | async; track event) {
+    <div>{{event.capacity}}</div>
+    <div>{{event.city}}</div>
+    <div>{{event.name}}</div>
+    <div>{{event.time | formatDateTime}}</div>
+    <div>{{event.venue}}</div>
+    <div>{{event.workshop}}</div>
+}

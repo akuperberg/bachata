@@ -3,7 +3,6 @@
   <div class="carousel">
     <ngx-slick-carousel class="carousel" [config]="slickCarouselConfig" (beforeChange)="onBeforeChange()" (afterChange)="onAfterChange($event)">
       @for (videoId of videoIds; track videoId) {
-      <!-- <youtube-player ngxSlickItem [videoId]="videoId" [width]="600"></youtube-player> -->
       <app-video-player ngxSlickItem [videoId]="videoId" [width]="600" [activeSlide]="activeSlideIndex"></app-video-player>
       }
     </ngx-slick-carousel>
