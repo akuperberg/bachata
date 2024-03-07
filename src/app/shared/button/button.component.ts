@@ -16,6 +16,7 @@ export class ButtonComponent {
 
 
   classesConfig = {
-    primary: 'primary'
+    primary: 'primary',
+    secondary: 'secondary'
   }
 }

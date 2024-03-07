@@ -1,0 +1,44 @@
+.events {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 13px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-name {
+            color: #3E363F;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    &__place-price {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+h2 {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}

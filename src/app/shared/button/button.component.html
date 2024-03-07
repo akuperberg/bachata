@@ -1,1 +1,1 @@
-<button [ngClass]="classesConfig[buttonImportance]" [routerLink]="routerLinkAddress">{{buttonText}}</button>
+<button [ngClass]="classesConfig[buttonImportance]" [routerLink]="routerLinkAddress ? routerLinkAddress : undefined">{{buttonText}}</button>
