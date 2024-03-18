@@ -6,7 +6,7 @@ import { VideosService } from '../shared/services/videos/videos.service';
 import { CommonModule } from '@angular/common';
 import { catchError, tap } from 'rxjs';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { ButtonComponent } from '../shared/button/button.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { VideoPlayerComponent } from '../shared/components/video-player/video-player.component';
 

@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DatePipe } from '../shared/pipes/date.pipe';
 import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ButtonComponent } from '../shared/button/button.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
 import { NewEventModalComponent } from './new-event-modal/new-event-modal.component';
 import {
   MatDialog,
