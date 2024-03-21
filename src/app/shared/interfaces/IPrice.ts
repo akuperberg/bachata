@@ -1,4 +1,4 @@
-export interface ICurrency {
+export interface IPrice {
     price: number;
     currency: string;
   }
