@@ -1,5 +1,4 @@
 import { Pipe, type PipeTransform } from '@angular/core';
-import { Timestamp } from '@angular/fire/firestore';
 import { DateTime } from 'luxon';
 
 @Pipe({
@@ -8,8 +7,9 @@ import { DateTime } from 'luxon';
 })
 export class DatePipe implements PipeTransform {
 
-  transform(value: Timestamp): string {
-    return DateTime.fromJSDate(value.toDate()).toLocaleString(DateTime.DATETIME_SHORT);
+  transform(value: string): string {
+    const dateTime = DateTime.fromISO(value);
+    return dateTime.toLocaleString(DateTime.DATETIME_FULL); 
   }
 
 }

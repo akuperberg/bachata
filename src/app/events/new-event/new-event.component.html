@@ -1,6 +1,52 @@
-<form>
-    <mat-form-field>
-        <mat-label>Event name</mat-label>
-        <input matInput placeholder="Enter the event name">
-    </mat-form-field>
+<h3>New event</h3>
+<form [formGroup]="eventForm" (ngSubmit)="onFormSubmit()">
+    <div class="event-form">
+        <mat-form-field>
+            <mat-label>Event name</mat-label>
+            <input matInput placeholder="Enter the event name" formControlName="name">
+        </mat-form-field>
+        <div formGroupName="priceFull">
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput type="number" placeholder="Enter the event price" formControlName="price">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Currency</mat-label>
+                <mat-select formControlName="currency">
+                    @for (currency of (currencies$ | async)?.data; track currency) {
+                    <mat-option [value]="currency.currency">{{currency.currency}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label>Date and time</mat-label>
+            <input matInput [value]='21' type="datetime-local" min="2024-01-31T23:59" max="9999-12-31T23:59" placeholder="Enter the date and time" formControlName="date">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+                @for (country of (countries$ | async)?.data; track country) {
+                <mat-option [value]="country.country">{{country.country}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="eventForm.value.country">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="city">
+                <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Venue</mat-label>
+            <input matInput placeholder="Enter the venue name" formControlName="venue">
+        </mat-form-field>
+        <label id="workshop">Is the workshop included in price?</label>
+        <mat-radio-group aria-labelledby="workshop" formControlName="workshop">
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <button type="submit">Publish event</button>
 </form>

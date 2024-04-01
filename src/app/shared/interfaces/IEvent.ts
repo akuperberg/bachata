@@ -1,10 +1,13 @@
-import { Timestamp } from '@angular/fire/firestore';
 import { IPrice } from './IPrice';
 
 export interface IEvent {
+  event: IEventContents;
+}
+export interface IEventContents {
   name: string;
+  country: string;
   city: string;
-  time: Timestamp;
+  date: string;
   venue: string;
   workshop: boolean;
   priceFull: IPrice;

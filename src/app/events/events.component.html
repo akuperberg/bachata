@@ -6,15 +6,15 @@
     @for (event of events$ | async; track event) {
     <div class="event-card">
         <div class="event-card__header">
-            <div class="event-card__header-name">{{event.name}}</div>
-            <div class="event-card__header-date">{{event.time | formatDateTime}}</div>
+            <div class="event-card__header-name">{{event.event.name}}</div>
+            <div class="event-card__header-date">{{event.event.date | formatDateTime}}</div>
         </div>
         <div class="event-card__place-price">
-            <div>{{event.city}}, {{event.venue}}</div>
-            <div>{{event.priceFull.price}} {{event.priceFull.currency}}</div>
+            <div>{{event.event.country}}, {{event.event.city}}, {{event.event.venue}}</div>
+            <div>{{event.event.priceFull.price}} {{event.event.priceFull.currency}}</div>
         </div>
         <div>
-            <div>{{ event.workshop? 'Workshop included' : 'No workshop'}}</div>
+            <div>{{ event.event.workshop? 'Workshop included' : 'No workshop'}}</div>
         </div>
     </div>
     }
