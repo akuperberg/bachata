@@ -13,6 +13,7 @@ export class ButtonComponent {
   @Input() buttonText = '';
   @Input() buttonImportance = '' as keyof typeof this.classesConfig;
   @Input() routerLinkAddress = '';
+  @Input() buttonType = '';
 
 
   classesConfig = {

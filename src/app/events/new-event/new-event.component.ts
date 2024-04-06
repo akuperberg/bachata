@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { FirebaseService } from '../../shared/services/firebase/firebase.service';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-new-event',
@@ -22,7 +23,8 @@ import { FirebaseService } from '../../shared/services/firebase/firebase.service
     MtxDatetimepickerModule,
     CommonModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    ButtonComponent
   ],
   templateUrl: './new-event.component.html',
   styleUrl: './new-event.component.scss',

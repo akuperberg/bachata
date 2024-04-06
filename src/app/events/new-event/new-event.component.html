@@ -48,5 +48,8 @@
             <mat-radio-button value="no">No</mat-radio-button>
         </mat-radio-group>
     </div>
-    <button type="submit">Publish event</button>
+    <!-- <button type="submit">Publish event</button> -->
+    <div class="button-container">
+        <app-button [buttonText]="'Publish event'" [buttonImportance]="'primary'" [buttonType]="'submit'"></app-button>
+    </div>
 </form>
